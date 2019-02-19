@@ -28,7 +28,12 @@ public class MyController {
     @RequestMapping("/register")
     public String handleRequest(Map<String, Object> model) {
         model.put("message", "yyy");
-        return "index";
+        return "redirect:/target";
+    }
+
+    @RequestMapping("/target")
+    public String redirectTarget(@ModelAttribute String message, Model model) {
+        return "target-page";
     }
 
     @GetMapping("/foo")
